@@ -1,0 +1,109 @@
+.body {
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+}
+
+.header__title {
+  margin: 30px auto;
+  color: #8b9687;
+}
+
+.main__description,
+.main__language {
+  margin: 12px auto;
+  color: #a2a2a2;
+}
+
+.main__textarea {
+  display: block;
+  height: 250px;
+  margin: 20px auto;
+  padding: 10px;
+  color: #3D3D3D;
+  font-size: 18px;
+  overflow: auto;
+}
+
+.main__textarea,
+.keyboard {
+  width: 825px;
+  border: 2px solid #a2a2a2;
+  border-radius: 5px;
+}
+
+.keyboard {
+  margin: auto;
+  padding: 5px;
+  background: #BECFB9;
+}
+
+.keyboard__line {
+  display: flex;
+}
+
+.keyboard__key {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  padding: 3px;
+  background: #ECF7E9;
+  border: 1px solid #ECF7E9;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  color: #3D3D3D;
+  font-size: 14px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.keyboard__arrows .keyboard__key {
+  height: 14.5px;
+  line-height: 14.5px;
+  margin-bottom: 0;
+}
+
+.keyboard__key:hover {
+  background: #CDD3CD;
+  border: 1px solid #CDD3CD;
+  opacity: 0.5;
+}
+
+.keyboard__key:active {
+  background: #7a8278;
+  border: 1px solid #7a8278;
+  box-shadow: none;
+  opacity: 0.9;
+}
+
+.keyboard__key_backspace {
+  width: 109px;
+}
+
+.keyboard__key_tab {
+  width: 50px;
+}
+
+.keyboard__key_del {
+  width: 45px;
+}
+
+.keyboard__key_caps {
+  width: 90px;
+}
+
+.keyboard__key_enter {
+  width: 113px;
+}
+
+.keyboard__key_shift {
+  width: 128.5px;
+}
+
+.keyboard__key_cmd {
+  width: 55px;
+}
+
+.keyboard__key_space {
+  width: 295px;
+}
