@@ -84,11 +84,14 @@ function createLine4() {
 }
 
 function createLine5() {
-  const keys = ['Fn', 'Ctrl', 'Opt'].map(createKey);
+  const keys = [];
+  keys.push(createKey('Fn', 'keyboard__key_fn'));
+  keys.push(createKey('Ctrl', 'keyboard__key_ctrl'));
+  keys.push(createKey('Opt', 'keyboard__key_opt'));
   keys.push(createKey('Cmd', 'keyboard__key_cmd'));
-  keys.push(createKey(' ', 'keyboard__key_space'));
+  keys.push(createKey('', 'keyboard__key_space'));
   keys.push(createKey('Cmd', 'keyboard__key_cmd'));
-  keys.push(createKey('Opt'));
+  keys.push(createKey('Opt', 'keyboard__key_opt'));
   keys.push(createKey('\u2190'));
   const arrows = document.createElement('div');
   arrows.classList.add('keyboard__arrows');
@@ -132,3 +135,36 @@ createHeader();
 createMain();
 createKeyboard();
 createDescription();
+
+const keys = document.querySelectorAll('.keyboard__key');
+const textarea = document.querySelector('.main__textarea');
+
+let symbols = [];
+
+keys.forEach((k) => {
+  k.addEventListener('click', () => {
+    if (k.matches('.keyboard__key_backspace')) {
+      symbols.pop();
+      textarea.value = symbols.join('');
+    } else if (k.matches('.keyboard__key_space')) {
+      symbols.push(' ');
+      textarea.value = symbols.join('');
+    } else if (k.matches('.keyboard__key_enter')) {
+      symbols.push('\n');
+      textarea.value = symbols.join('');
+    } else if (k.matches('.keyboard__key_tab')) {
+      symbols.push('  ');
+      textarea.value = symbols.join('');
+    } else if (k.matches('.keyboard__key_cmd, .keyboard__key_shift, .keyboard__key_ctrl, .keyboard__key_fn, .keyboard__key_opt, .keyboard__key_del')) {
+      symbols.push('');
+      textarea.value = symbols.join('');
+    } else if (k.matches('.keyboard__key_caps')) {
+      k.classList.toggle('active');
+      symbols.push('');
+      textarea.value = symbols.join('');
+    } else {
+      textarea.value += k.innerText;
+      symbols = textarea.value.split('');
+    }
+  });
+});
